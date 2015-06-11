@@ -1,0 +1,73 @@
+<div class="form-group" ng-hide="mySearch === 'false'">
+    <label>Search: </label>
+    <input type="text" id="searchbox" ng-model="search" class="form-control" placeholder="What are we searching for?">
+</div>
+
+<div class="form-group">
+    <label>Show items per page: </label>
+    <select class="form-control select-box" ng-model="galleryCtrl.resultsPerPageNum" value="10">
+        <option value="5">5</option>
+        <option value="10" selected="selected">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+</div>
+
+<div class="form-group" ng-hide="mySorting === 'false'">
+    <label>Sort images:</label>
+    <select id="sortItemsBox" class="form-control select-box" ng-model="galleryCtrl.sortBy" value="By title">
+        <option value="title" selected="selected">By title</option>
+        <option value="date">By date</option>
+    </select>
+</div>
+
+<button class="btn btn-default slide" tooltip="Click to witness the magic!" tooltip-placement="right" ng-click="galleryCtrl.startSlideShow()"> Start slideshow!</button>
+
+<div ng-hide="myPagination === 'false'">
+    <pagination total-items="galleryCtrl.images.length" ng-model="galleryCtrl.currentPage" ng-change="galleryCtrl.pageChanged()"></pagination>
+    <pre>Page: {{galleryCtrl.currentPage}} / {{galleryCtrl.numberOfPages}}</pre>
+</div>
+
+<div class="panel panel-info" ng-repeat="image in galleryCtrl.images | filter:search | orderBy: sort | startFrom: galleryCtrl.currentPage * galleryCtrl.resultsPerPageNum:search | limitTo: galleryCtrl.resultsPerPageNum ">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{image.title}}</h3>
+    </div>
+    <div class="panel-body">
+        <span>
+            <img src="{{image.url}}}" fallback-src="assets/android_fallback.png" ng-click="galleryCtrl.openImage($index)">
+        </span>
+    </div>
+    <div class="panel-footer">{{image.date}}</div>
+</div>
+
+
+<!-- modal for enlarging an image: -->
+<div modal="showModal" >
+    <div class="modal-header">
+        <h4>{{galleryCtrl.currentImage.title}}</h4>
+    </div>
+    <div class="modal-body">
+        <img class="image-preview" src="{{galleryCtrl.currentImage.url}}">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="galleryCtrl.closeImage()">Okay</button>
+        <button class="btn btn-default" ng-click="galleryCtrl.openImage(galleryCtrl.index+1)">Next</button>
+        <button class="btn btn-default" ng-click="galleryCtrl.openImage(galleryCtrl.index-1)">Prev</button>
+    </div>
+</div>
+
+
+
+<!-- slideshow modal -->
+<div modal="showSlideModal" close="galleryCtrl.closeSlide()">
+    <div class="modal-header">
+        <h4>{{galleryCtrl.currentImage.title}}</h4>
+    </div>
+    <div class="modal-body">
+        <!-- <h4 class="preview-title">{{galleryCtrl.currentImage.title}}</h4> -->
+        <img class="image-preview" ng-src="{{slideUrl}}" />
+    </div>
+    <div class="modal-footer">
+        <button class="btn ok" ng-click="galleryCtrl.closeSlideShow()">Okay</button>
+    </div>
+</div>

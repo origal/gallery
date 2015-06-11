@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="gallery">
+<head>
+    <title> Gallery Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/angular-ui-bootstrap-modal.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+    <div id="galleryWrapper">
+        <h1> Gallery Demo:</h1>
+         <!-- You can also supply the image array as a literal json array: -->
+        <my-gallery results-per-page="10" search="true" sorting="true" auto-rotate-time="4" feed='[{
+    "title": "Sparkling nature ... Please view on black",
+    "url": "http://farm8.static.flickr.com/7006/6689765801_b3f9ab8fa6.jpg",
+    "date": "Sat, 14 Jan 2012 17:03:00 -0500"},{
+    "title": "Silver curve - Please view on black",
+    "url": "http://farm8.static.flickr.com/7006/6453535439_b6ac71d303.jpg",
+    "date": "Mon, 05 Dec 2011 11:18:00 -0500"},
+    {
+    "title": "Like on a palm of a hand - Please view on black",
+    "url": "http://farm8.static.flickr.com/7168/6477336109_ae49d2e244.jpg",
+    "date": "Fri, 09 Dec 2011 10:00:00 -0500"
+}, {
+    "title": "Silver curve - Please view on black",
+    "url": "http://farm8.static.flickr.com/7006/6453535439_b6ac71d303.jpg",
+    "date": "Mon, 05 Dec 2011 11:18:00 -0500"
+}, {
+    "title": "On the other side - Please view on black",
+    "url": "http://farm8.static.flickr.com/7158/6399857349_b9865fb2ce.jpg",
+    "date": "Sat, 26 Nov 2011 00:45:00 -0500"
+}, {
+    "title": "Derborence lake inspired.. :)",
+    "url": "http://farm7.static.flickr.com/6104/6357185863_d043645a12.jpg",
+    "date": "Fri, 18 Nov 2011 07:40:19 -0500"
+}, {
+    "title": "Late sun",
+    "url": "http://farm7.static.flickr.com/6221/6318336935_d6d54f85f6.jpg",
+    "date": "Sun, 06 Nov 2011 10:52:00 -0500"
+}, {
+    "title": "Is it missing something?",
+    "url": "http://farm7.static.flickr.com/6050/6279664899_f411cfb402.jpg",
+    "date": "Tue, 25 Oct 2011 10:12:02 -0400"
+}]'></my-gallery>
+    </div>
+</body>
+</html>

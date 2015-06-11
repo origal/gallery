@@ -1,0 +1,42 @@
+#galleryWrapper {
+	width: 60%;
+	margin: 0 auto;
+}
+.select-box {
+	width: 200px;
+}
+small {
+    display: block;
+}
+img {
+    display: block;
+}
+
+.image-preview {
+    width: 90vw;
+    height: 83vh;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.btn-default.slide {
+	margin-bottom: 20px;
+}
+
+.panel-body {
+	text-align: center;
+}
+
+.panel-body span {
+	display: inline-block;
+}
+
+@font-face {
+    font-family: Southern;
+    src: url(../fonts/Southern.ttf) format('truetype');
+}
+h1 {
+	font-family: Southern;
+	font-size: 9em;
+}
